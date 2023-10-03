@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: drop-transactions
+      author: ShulimenkoMyroslava
+      preConditions:
+        - tableExists:
+            tableName: transactions
+      rollback:
+        - dropTable:
+            cascadeConstraints:  true
+            tableName: transactions
+
+  - changeSet:
+      id: drop-agreements
+      author: ShulimenkoMyroslava
+      preConditions:
+        - tableExists:
+            tableName: agreements
+      rollback:
+        - dropTable:
+            cascadeConstraints:  true
+            tableName: agreements
+
+  - changeSet:
+      id: drop-accounts
+      author: ShulimenkoMyroslava
+      preConditions:
+        - tableExists:
+            tableName: accounts
+      rollback:
+        - dropTable:
+            tableName: accounts
+
+  - changeSet:
+      id: drop-clients
+      author: ShulimenkoMyroslava
+      preConditions:
+        - tableExists:
+            tableName: clients
+      rollback:
+        - dropTable:
+            tableName: clients
+
+  - changeSet:
+      id: drop-managers
+      author: ShulimenkoMyroslava
+      preConditions:
+        - tableExists:
+            tableName: managers
+      rollback:
+        - dropTable:
+            tableName: managers

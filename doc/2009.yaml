@@ -1,0 +1,301 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1695232181960-5
+      author: admin (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: AMOUNT
+                  type: numeric(38, 2)
+              - column:
+                  name: CREATED_AT
+                  type: date
+              - column:
+                  name: TYPE
+                  type: TINYINT
+              - column:
+                  name: CREDIT_ACCOUNT_ID
+                  type: BIGINT
+              - column:
+                  name: DEBIT_ACCOUNT_ID
+                  type: BIGINT
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: CONSTRAINT_FE
+                  name: ID
+                  type: BIGINT
+              - column:
+                  name: DESCRIPTION
+                  type: VARCHAR(255)
+            tableName: TRANSACTIONS
+
+  - changeSet:
+      id: 1695232181960-2
+      author: admin (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: CREATED_AT
+                  type: date
+              - column:
+                  name: INTEREST_RATE
+                  type: numeric(38, 2)
+              - column:
+                  name: PRODUCT_TYPE
+                  type: TINYINT
+              - column:
+                  name: STATUS
+                  type: TINYINT
+              - column:
+                  name: TOTALSUM
+                  type: numeric(38, 2)
+              - column:
+                  name: ACCOUNT_ID
+                  type: BIGINT
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: CONSTRAINT_27EA
+                  name: ID
+                  type: BIGINT
+              - column:
+                  name: MANAGER_ID
+                  type: BIGINT
+            tableName: AGREEMENTS
+  - changeSet:
+      id: 1695232181960-4
+      author: admin (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: CREATED_AT
+                  type: date
+              - column:
+                  name: STATUS
+                  type: TINYINT
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: CONSTRAINT_35
+                  name: ID
+                  type: BIGINT
+              - column:
+                  name: DESCRIPTION
+                  type: VARCHAR(255)
+              - column:
+                  name: FIRST_NAME
+                  type: VARCHAR(255)
+              - column:
+                  name: LAST_NAME
+                  type: VARCHAR(255)
+            tableName: MANAGERS
+  - changeSet:
+      id: 1695232181960-1
+      author: admin (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: BALANCE
+                  type: numeric(38, 2)
+              - column:
+                  name: CREATED_AT
+                  type: date
+              - column:
+                  name: CURRENCY_CODE
+                  type: TINYINT
+              - column:
+                  name: STATUS
+                  type: TINYINT
+              - column:
+                  name: TYPE
+                  type: TINYINT
+              - column:
+                  name: CLIENT_ID
+                  type: BIGINT
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: CONSTRAINT_AF43
+                  name: ID
+                  type: BIGINT
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+            tableName: ACCOUNTS
+  - changeSet:
+     id: 1695232181960-3
+     author: admin (generated)
+     changes:
+                          - createTable:
+                              columns:
+                                - column:
+                                    name: CREATED_AT
+                                    type: date
+                                - column:
+                                    name: STATUS
+                                    type: TINYINT
+                                - column:
+                                    autoIncrement: true
+                                    constraints:
+                                      nullable: false
+                                      primaryKey: true
+                                      primaryKeyName: CONSTRAINT_5E
+                                    name: ID
+                                    type: BIGINT
+                                - column:
+                                    name: ADDRESS
+                                    type: VARCHAR(255)
+                                - column:
+                                    name: EMAIL
+                                    type: VARCHAR(255)
+                                - column:
+                                    name: FIRST_NAME
+                                    type: VARCHAR(255)
+                                - column:
+                                    name: LAST_NAME
+                                    type: VARCHAR(255)
+                                - column:
+                                    name: PHONE
+                                    type: VARCHAR(255)
+                                - column:
+                                    name: TAX_CODE
+                                    type: VARCHAR(255)
+                              tableName: CLIENTS
+
+  - changeSet:
+      id: 1695232181960-6
+      author: admin (generated)
+      changes:
+        - addUniqueConstraint:
+            columnNames: ACCOUNT_ID
+            constraintName: CONSTRAINT_27E
+            tableName: AGREEMENTS
+  - changeSet:
+      id: 1695232181960-7
+      author: admin (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: MANAGER_ID
+            indexName: FKAY79WRUYPPH221HAC23T9LQGH_INDEX_2
+            tableName: AGREEMENTS
+  - changeSet:
+      id: 1695232181960-8
+      author: admin (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: CREDIT_ACCOUNT_ID
+            indexName: FKC6BGQJW4PBWA2XSG2QL7N5GRV_INDEX_F
+            tableName: TRANSACTIONS
+  - changeSet:
+      id: 1695232181960-9
+      author: admin (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: CLIENT_ID
+            indexName: FKGYMOG7FIRRF8BNOIIG61666OB_INDEX_A
+            tableName: ACCOUNTS
+  - changeSet:
+      id: 1695232181960-10
+      author: admin (generated)
+      changes:
+        - createIndex:
+            columns:
+              - column:
+                  name: DEBIT_ACCOUNT_ID
+            indexName: FKKPQ7IMH2RCOLPGHJXB6B8OUWC_INDEX_F
+            tableName: TRANSACTIONS
+  - changeSet:
+      id: 1695232181960-11
+      author: admin (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: MANAGER_ID
+            baseTableName: AGREEMENTS
+            constraintName: FKAY79WRUYPPH221HAC23T9LQGH
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: MANAGERS
+            validate: true
+  - changeSet:
+      id: 1695232181960-12
+      author: admin (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: CREDIT_ACCOUNT_ID
+            baseTableName: TRANSACTIONS
+            constraintName: FKC6BGQJW4PBWA2XSG2QL7N5GRV
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: ACCOUNTS
+            validate: true
+  - changeSet:
+      id: 1695232181960-13
+      author: admin (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: CLIENT_ID
+            baseTableName: ACCOUNTS
+            constraintName: FKGYMOG7FIRRF8BNOIIG61666OB
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: CLIENTS
+            validate: true
+  - changeSet:
+      id: 1695232181960-14
+      author: admin (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: DEBIT_ACCOUNT_ID
+            baseTableName: TRANSACTIONS
+            constraintName: FKKPQ7IMH2RCOLPGHJXB6B8OUWC
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: ACCOUNTS
+            validate: true
+  - changeSet:
+      id: 1695232181960-15
+      author: admin (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: ACCOUNT_ID
+            baseTableName: AGREEMENTS
+            constraintName: FKLSHRWA9MQ7IAR9RWXKWDRUS2R
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: ACCOUNTS
+            validate: true
+
