@@ -1,21 +1,28 @@
 package com.example.bankproject.service.impl;
 
 import com.example.bankproject.dto.ClientDto;
-import com.example.bankproject.entity.Client;
+import com.example.bankproject.mapper.ClientMapper;
+import com.example.bankproject.mapper.entity.Client;
 import com.example.bankproject.repository.ClientRepository;
 import com.example.bankproject.service.ClientServise;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 
 public class ClientServiseImpl implements ClientServise {
     private final ClientRepository clientRepository;
-    @Override
+    private final ClientMapper clientMapper;
+    @Autowired
+    public ClientServiseImpl(ClientRepository clientRepository, ClientMapper clientMapper) {
+        this.clientRepository = clientRepository;
+        this.clientMapper = clientMapper;
+    }
     public Client getClientById(BigInteger id) {
         return clientRepository.getClientById(id);
     }
@@ -26,9 +33,8 @@ public class ClientServiseImpl implements ClientServise {
     }
 
     @Override
-    public Client createClient(ClientDto client) {
-//        Client client = clientMapper.mapToEntity(clientDto);
-//        client.setManager(manager);
-        return clientRepository.save(client);
+   @Transactional
+    public ClientDto createClient(ClientDto client) {
+        return clientMapper.mapToDto(clientRepository.save(client));
     }
 }

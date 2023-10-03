@@ -1,8 +1,7 @@
 package com.example.bankproject.service;
 
 import com.example.bankproject.dto.ClientDto;
-import com.example.bankproject.entity.Account;
-import com.example.bankproject.entity.Client;
+import com.example.bankproject.mapper.entity.Client;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -12,6 +11,6 @@ public interface ClientServise {
 
    List<Client> findAllClient();
 
-    Client createClient(ClientDto clientDto);
+    ClientDto createClient(ClientDto client);
 }
 
