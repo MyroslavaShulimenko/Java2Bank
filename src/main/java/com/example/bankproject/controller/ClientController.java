@@ -2,7 +2,7 @@ package com.example.bankproject.controller;
 
 import com.example.bankproject.dto.ClientDto;
 import com.example.bankproject.mapper.entity.Client;
-import com.example.bankproject.service.ClientServise;
+import com.example.bankproject.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,19 +13,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("auth/clients")
 public class ClientController {
-    private final ClientServise clientServise;
+    private final ClientService clientService;
 
     @GetMapping("/{id}")
     public Client getClientById (@PathVariable("id") BigInteger id){
-        return clientServise.getClientById(id);
+        return clientService.getClientById(id);
     }
     @GetMapping("/find")
     public List<Client> findAllClient (){
-        return clientServise.findAllClient();
+        return clientService.findAllClient();
     }
 
     @PostMapping("/add")
     public ClientDto addClient(@RequestBody ClientDto clientDto){
-        return clientServise.createClient(clientDto);
+        return clientService.createClient(clientDto);
     }
 }

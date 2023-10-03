@@ -6,7 +6,7 @@ import com.example.bankproject.mapper.entity.Client;
 import java.math.BigInteger;
 import java.util.List;
 
-public interface ClientServise {
+public interface ClientService {
    Client getClientById(BigInteger id);
 
    List<Client> findAllClient();
