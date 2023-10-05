@@ -24,8 +24,13 @@ public class ClientController {
         return clientService.findAllClient();
     }
 
-    @PostMapping("/add")
+    @PutMapping("/add")
     public ClientDto addClient(@RequestBody ClientDto clientDto){
         return clientService.createClient(clientDto);
     }
+    @PutMapping("/create")
+    public Client createClient(@RequestBody Client client){
+        return clientService.createdClient(client);
+    }
+
 }

@@ -37,4 +37,9 @@ public class ClientServiceImpl implements ClientService {
     public ClientDto createClient(ClientDto client) {
         return clientMapper.mapToDto(clientRepository.save(client));
     }
+
+    @Override
+    public Client createdClient(Client client) {
+        return clientRepository.save(client);
+    }
 }

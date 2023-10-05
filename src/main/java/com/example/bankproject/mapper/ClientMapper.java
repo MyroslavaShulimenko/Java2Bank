@@ -19,8 +19,6 @@ public interface ClientMapper {
         default StatusState statusToUpperCase(String status) {
             return StatusState.valueOf(status.toUpperCase());
         }
-        @IterableMapping(qualifiedByName = "mapClientToDto")
-        List<ClientDto> mapToListDto(List<Client> clients);
         @Named("mapClientToDto")
         ClientDto mapToDto(Client save);
 }
