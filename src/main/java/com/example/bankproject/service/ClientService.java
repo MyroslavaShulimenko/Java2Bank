@@ -12,5 +12,9 @@ public interface ClientService {
    List<Client> findAllClient();
 
     ClientDto createClient(ClientDto client);
+
+    Client createdClient(Client client);
+
 }
+
 

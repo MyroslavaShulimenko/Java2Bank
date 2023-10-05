@@ -7,10 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.math.BigInteger;
 
 public interface ClientRepository extends JpaRepository<Client, BigInteger> {
+
+
     Client getClientById(BigInteger id);
-
-    Client save(ClientDto client);
-
-    //  List<Client> findAllClient();
 }
 

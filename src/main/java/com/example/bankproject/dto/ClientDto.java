@@ -10,7 +10,7 @@ import lombok.Value;
 @Data
 @AllArgsConstructor
 public class ClientDto {
-    Long id;
+  //  Long id;
 
     String status;
 
@@ -25,6 +25,6 @@ public class ClientDto {
     String address;
 
     String phone;
-
+    String createdAt;
 
 }

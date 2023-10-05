@@ -34,12 +34,15 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
    @Transactional
-    public ClientDto createClient(ClientDto client) {
+    public ClientDto createClient(ClientDto clientDto) {
+         Client client =clientMapper.mapToEntity(clientDto);
         return clientMapper.mapToDto(clientRepository.save(client));
     }
+
 
     @Override
     public Client createdClient(Client client) {
         return clientRepository.save(client);
     }
+
 }
