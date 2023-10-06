@@ -16,7 +16,7 @@ public class ClientMapperTest {
     void mapToEntity() {
         // Создаем тестовые данные
         ClientDto clientDto = new ClientDto("ACTIVE","1111111111","aaaaaaaaaaa","aaaaaaaaa","aa@ss.com","aaaa","1111111","2023-04-04");
-     //   clientDto.setStatus(StatusState.valueOf("active"));
+      //  clientDto.setStatus(StatusState.ACTIVE);
 
         // Вызываем метод маппинга
         Client client = clientMapper.mapToEntity(clientDto);
@@ -27,7 +27,16 @@ public class ClientMapperTest {
 
     @Test
     void statusToUpperCase() {
+        // Создаем экземпляр реализации ClientMapper
+        ClientMapper clientMapper = new ClientMapperImpl();
+
+        // Вызываем метод statusToUpperCase
+        StatusState result = clientMapper.statusToUpperCase("active");
+
+        // Проверяем, что метод корректно преобразует строку в верхний регистр и возвращает соответствующее значение enum
+        assertEquals(result, StatusState.ACTIVE);
     }
+
 
     @Test
     void mapToDto() {
