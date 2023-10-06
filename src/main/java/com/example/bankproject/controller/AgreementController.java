@@ -1,8 +1,7 @@
 package com.example.bankproject.controller;
 
-import com.example.bankproject.entity.Account;
-import com.example.bankproject.entity.Agreement;
-import com.example.bankproject.service.AgreementServise;
+import com.example.bankproject.mapper.entity.Agreement;
+import com.example.bankproject.service.AgreementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,7 @@ import java.math.BigInteger;
 @RequiredArgsConstructor
 @RequestMapping("auth/agreements")
 public class AgreementController {
-    private final AgreementServise agreementServise;
+    private final AgreementService agreementServise;
 
     @GetMapping("/{id}")
     public Agreement getAgreementById (@PathVariable("id") BigInteger id){
@@ -22,7 +21,7 @@ public class AgreementController {
     @PostMapping("/add")
     public ResponseEntity<String> addAgreement(@RequestBody Agreement agreement) {
         agreementServise.addAgreement(agreement);
-        //  код для обработки объекта Agreement
+        //  код для обработки объекта Agreement / добавляет только без свзей и id
         return ResponseEntity.ok("Agreement успешно добавлен");
     }
 
