@@ -1,7 +1,6 @@
 package com.example.bankproject.repository;
 
-import com.example.bankproject.entity.Account;
-import com.example.bankproject.entity.Manager;
+import com.example.bankproject.mapper.entity.Manager;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.math.BigInteger;

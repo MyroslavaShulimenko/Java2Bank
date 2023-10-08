@@ -1,6 +1,7 @@
 package com.example.bankproject.controller;
 
-import com.example.bankproject.entity.Manager;
+import com.example.bankproject.dto.ManagerDto;
+import com.example.bankproject.mapper.entity.Manager;
 import com.example.bankproject.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -20,4 +21,9 @@ public class ManagerController {
     public void deleteManagerById (@PathVariable("id") BigInteger id){
          managerService.deleteManagerById(id);
     }
+@GetMapping("/Dto/{idDto}")
+public ManagerDto getManagerDtoById(@PathVariable("idDto")BigInteger idDto){
+     return managerService.getManagerDtoById(idDto);
+}
+
 }
