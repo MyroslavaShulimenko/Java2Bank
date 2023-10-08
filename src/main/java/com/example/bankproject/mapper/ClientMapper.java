@@ -20,5 +20,5 @@ public interface ClientMapper {
             return StatusState.valueOf(status.toUpperCase());
         }
         @Named("mapClientToDto")
-        ClientDto mapToDto(Client save);
+        ClientDto mapToDto(Client client);
 }

@@ -23,3 +23,11 @@ public interface AccountMapper {
     List<AccountDto> mapToListDto(List<Account>accounts);
 }
 
+//@Component
+//@Mapper(componentModel = "string")
+//public interface ManagerMapper {
+////    @Mapping(target = "firstName", source = "firstName")
+////    @Mapping(target = "lastName", source = "lastName")
+////    @Mapping(target = "status", source = "status")
+////    @Mapping(target = "description", source = "description")
+//    ManagerDto mapToDto(Manager manager);

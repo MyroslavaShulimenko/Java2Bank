@@ -15,9 +15,10 @@ public class AgreementController {
     private final AgreementService agreementServise;
 
     @GetMapping("/{id}")
-    public Agreement getAgreementById (@PathVariable("id") BigInteger id){
+    public Agreement getAgreementById(@PathVariable("id") BigInteger id) {
         return agreementServise.getAgreementById(id);
     }
+
     @PostMapping("/add")
     public ResponseEntity<String> addAgreement(@RequestBody Agreement agreement) {
         agreementServise.addAgreement(agreement);
