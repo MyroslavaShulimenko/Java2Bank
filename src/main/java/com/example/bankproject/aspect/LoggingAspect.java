@@ -32,9 +32,9 @@ public class LoggingAspect {
                         "URL : {}\n" +
                         "HTTP_METHOD : {}\n" +
                         "CONTROLLER_METHOD : {}.{}",
-//                request.getRemoteAddr(),
-//                request.getRequestURL().toString(),
-//                request.getMethod(),
+                request.getRemoteAddr(),
+                request.getRequestURL().toString(),
+                request.getMethod(),
                 jp.getSignature().getDeclaringTypeName(),
                 jp.getSignature().getName());
     }
