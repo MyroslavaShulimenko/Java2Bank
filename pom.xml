@@ -20,6 +20,9 @@
         <org.jacoco.version>0.8.8</org.jacoco.version>
         <org.yaml.version>2.0</org.yaml.version>
         <springdoc-openapi.version>2.1.0</springdoc-openapi.version>
+        <logback.version>1.4.7</logback.version>
+        <logstash-logback-encoder.version>7.3</logstash-logback-encoder.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -111,7 +114,19 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>${springdoc-openapi.version}</version>
         </dependency>
-<!--        <dependency>-->
+        <!--		logback				-->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash-logback-encoder.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <!--        <dependency>-->
 <!--            <groupId>some.group</groupId>-->
 <!--            <artifactId>conflicting-library</artifactId>-->
 <!--            <version>conflicting-version</version>-->
