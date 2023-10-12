@@ -3,10 +3,12 @@ package com.example.bankproject.service.impl;
 import com.example.bankproject.dto.AccountDto;
 import com.example.bankproject.mapper.AccountMapper;
 import com.example.bankproject.mapper.entity.Account;
+import com.example.bankproject.mapper.entity.Client;
 import com.example.bankproject.mapper.entity.enums.Currencies;
 import com.example.bankproject.mapper.entity.enums.ProductType;
 import com.example.bankproject.mapper.entity.enums.StatusState;
 import com.example.bankproject.repository.AccountRepository;
+import com.example.bankproject.util.DtoCreator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,15 +43,17 @@ public class AccountServiceImplTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
 
-//        account.setId((long) 1.0);
-//        account.setStatus(StatusState.valueOf("ACTIVE"));
-//        account.setName("AD2023033");
-//        account.setType(ProductType.valueOf("SALARY"));
-//        account.setStatus(StatusState.valueOf("ACTIVE"));
-//        account.setBalance(BigDecimal.valueOf(12000.00));
-//        account.setCurrencyCode(Currencies.valueOf("UAH"));
-//        account.setCreatedAt("2023-02-14");
+        account.setId((long) 1.0);
+        account.setStatus(StatusState.valueOf("ACTIVE"));
+        account.setClient(new Client());
+        account.setName("AD2023033");
+        account.setType(ProductType.valueOf("SALARY"));
+        account.setStatus(StatusState.valueOf("ACTIVE"));
+        account.setBalance(BigDecimal.valueOf(12000.00));
+        account.setCurrencyCode(Currencies.valueOf("UAH"));
+        account.setCreatedAt("2023-02-14");
     }
+
 
     @Test
     public void testGetAccountById() {
@@ -67,10 +71,12 @@ public class AccountServiceImplTest {
     public void testGetAllAccountsWhereStatusIs() {
         StatusState status = StatusState.ACTIVE; // нужный статус
         List<Account> accounts = new ArrayList<>(); //  список аккаунтов
-//        accounts.add(account);
+        accounts.add(account);
         when(accountRepository.findAllAccountsWhereStatusIs(status)).thenReturn(accounts);
 
         List<AccountDto> accountDtos = new ArrayList<>(); //  список AccountDto
+        AccountDto accountDto = DtoCreator.getAccountDto();
+        accountDtos.add(accountDto);
         when(accountMapper.mapToListDto(accounts)).thenReturn(accountDtos);
 
         List<AccountDto> result = accountService.getAllAccountsWhereStatusIs(status);
