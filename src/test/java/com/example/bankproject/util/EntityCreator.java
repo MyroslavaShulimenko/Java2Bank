@@ -16,7 +16,7 @@ public class EntityCreator {
         Account account = new Account();
         account.setId((long) 1.0);
         account.setStatus(StatusState.valueOf("ACTIVE"));
-        account.setClient(new Client());
+        account.setClient(new Client(1L, "John"));
 //        account.setClient(creatorClient());
         account.setName("AD2023033");
         account.setType(ProductType.valueOf("SALARY"));
